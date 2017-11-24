@@ -185,10 +185,8 @@ void sort::d_sort(int* masterNode, const int rank, const int N, const int K)
 #pragma endregion  comparing data (lower rank have smaller numbers)
 		
 		//clean (not really needed)
-		for (auto j = N; j<2 * N; j++)
-		{
-			A[j] = NULL;
-		}
+		fill_n(A, 2 * N, 0);
+
 	} //end for
 	qsort(A, N, sizeof(int), &cmp);
 }
