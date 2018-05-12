@@ -117,6 +117,7 @@ public class FieldManager : MonoBehaviour {
             }
         }
 
+        GameManager.Instance.CentralizeCamera();
     }
 
     public void LoadInit(int n, List<int> savedObstacles, int start, int finish)

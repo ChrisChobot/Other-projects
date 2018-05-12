@@ -25,6 +25,7 @@ public enum ActionButtonType
     DIJKSTRA,
     ASTAR,
     SHOW_ROAD,
+    CHANGE_VIEW,
     EXIT
 }
 
@@ -55,6 +56,9 @@ public class UIbutton : MyButton
                 break;
             case ActionButtonType.SHOW_ROAD:
                 _button.onClick.AddListener(() => { FieldManager.Instance.DoColorChange(); });
+                break;
+            case ActionButtonType.CHANGE_VIEW:
+                _button.onClick.AddListener(() => { GameManager.Instance.ChangeView(); });
                 break;
             case ActionButtonType.EXIT:
                 _button.onClick.AddListener(() => { Application.Quit(); });

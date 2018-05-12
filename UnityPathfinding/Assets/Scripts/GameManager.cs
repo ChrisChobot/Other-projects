@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour {
         private set { _m = value; }
     }
 
+    public Camera mainCamera;
+    public Camera centralizedCamera;
 
     void Start () {
         n = 15;
@@ -58,5 +60,28 @@ public class GameManager : MonoBehaviour {
     public static IEnumerator Wait(float time = 2f)
     {
         yield return new WaitForSeconds(time);
+    }
+
+    public void ChangeView()
+    {
+        if (mainCamera.enabled)
+        {
+            mainCamera.enabled = false;
+            centralizedCamera.enabled = true;
+        }
+        else
+        {
+            mainCamera.enabled = true;
+            centralizedCamera.enabled = false;
+        }
+    }
+    public void CentralizeCamera()
+    {
+        float x = 490f + ((n - 10) * 0.4f);
+        float y = -259f + ((n - 10) * 0.73f);
+        float z = -527f + ((n - 10) * 0.36f);
+
+        Vector3 position = new Vector3(x,y,z);
+        centralizedCamera.transform.position = position;
     }
 }

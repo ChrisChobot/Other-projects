@@ -48,7 +48,7 @@ public class Pathfinding : MonoBehaviour {
         int dx = (int)Mathf.Abs(allFields[start].transform.position.x - allFields[finish].transform.position.x);
         int dz = (int)Mathf.Abs(allFields[start].transform.position.z - allFields[finish].transform.position.z);
 
-        return 2 * (dx + dz);
+        return 3 * (dx + dz);
     }
 
     private int Astar(int n, int start, int finish,ref int[] previous, List<Field> allFields)
@@ -68,7 +68,7 @@ public class Pathfinding : MonoBehaviour {
         open.Add(start);
         Field current;
 
-        while (open.Count > 0)
+        for (int i=0; i < allFields.Count*2; i++)
         {
             int lowestPriceId = fPrice[open[0]];
             foreach (int field in open)
