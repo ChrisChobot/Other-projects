@@ -15,7 +15,7 @@ limitations under the License.*/
 
 using UnityEngine;
 
-public class Field : MonoBehaviour {
-
+public class Field : MonoBehaviour
+{
     public bool isTower = false;
 }

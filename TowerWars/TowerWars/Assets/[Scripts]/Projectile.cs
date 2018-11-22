@@ -15,34 +15,43 @@ limitations under the License.*/
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
-    public Tower parent;
-    public float timer=0f;
-    void OnTriggerEnter(Collider other)
+    public Tower Parent;
+    public float Timer;
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Tower>() != null)
         {   
-            if (parent != null) { parent.KilledSomeone(); }
-            if (other.GetComponent<Tower>().isYellow == true)
+            if (Parent != null)
+            {
+                Parent.KilledSomeone();
+            }
+
+            if (other.GetComponent<Tower>().IsYellow == true)
             {
                 TowerManager.Instance.DeleteTower(other.GetComponent<Tower>());
                 TowerManager.Instance.MakeNewYellow();
             }
-            else { TowerManager.Instance.DeleteTower(other.GetComponent<Tower>()); }
+            else
+            {
+                TowerManager.Instance.DeleteTower(other.GetComponent<Tower>());
+            }
         }
-        GameManager.projectilesCount--;
-        Destroy(this.gameObject);
-      //  if (other != null) { Destroy(other.gameObject); }
+
+        GameManager.ProjectilesCount--;
+        Destroy(gameObject);
     }
 
-    public void Update()
+    private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > 20f)
+        Timer += Time.deltaTime;
+
+        if (Timer > 20f)
         {
-            GameManager.projectilesCount--;
-            Destroy(this.gameObject);
+            GameManager.ProjectilesCount--;
+            Destroy(gameObject);
         }
-        else if( timer > 0.5f)
+        else if( Timer > 0.5f)
         {
             GetComponent<BoxCollider>().isTrigger = true;
             GetComponent<BoxCollider>().enabled = true;

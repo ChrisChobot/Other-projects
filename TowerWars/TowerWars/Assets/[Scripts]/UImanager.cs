@@ -17,17 +17,16 @@ using UnityEngine.UI;
 
 public class UImanager : MonoBehaviour {
 
-    public Text wieze;
-    public Text pociski;
-    public Text czas;
-    public Text czasZyciaZoltej;
-    private float timer;
+    public Text Towers;
+    public Text Projectiles;
+    public Text GameTime;
+    private float _timer;
+
     public void Update()
     {
-        timer += Time.deltaTime;
-        wieze.text = string.Format("Ilosc wież: {0}", GameManager.towerCount);
-        pociski.text = string.Format("Ilość pocisków: {0}", GameManager.projectilesCount);
-        czas.text = string.Format("Czas gry: {0}", (int)timer);
-       // czasZyciaZoltej.text = string.Format("Czas życia żółtej: {0}", (int)TowerManager.Instance.YellowLifeTime());
+        _timer += Time.deltaTime;
+        Towers.text = string.Format("Towers count: {0}", GameManager.TowerCount);
+        Projectiles.text = string.Format("Projectiles count: {0}", GameManager.ProjectilesCount);
+        GameTime.text = string.Format("Game time: {0}", (int)_timer);
     }
 }

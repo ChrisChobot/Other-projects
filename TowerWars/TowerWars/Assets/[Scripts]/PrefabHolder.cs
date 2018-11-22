@@ -14,7 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.*/
 using UnityEngine;
 
-public class PrefabHolder : MonoBehaviour {
+public class PrefabHolder : MonoBehaviour
+{
     private static PrefabHolder instance;
     public static PrefabHolder Instance
     {
@@ -25,7 +26,8 @@ public class PrefabHolder : MonoBehaviour {
             return instance;
         }
     }
-    public GameObject ground;
-    public GameObject tower;
-    public GameObject projectile;
+
+    public GameObject Ground;
+    public GameObject Tower;
+    public GameObject Projectile;
 }

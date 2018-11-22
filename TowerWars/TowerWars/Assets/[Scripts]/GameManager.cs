@@ -25,8 +25,14 @@ public class GameManager : MonoBehaviour {
             return instance;
         }
     }
-    public static int towerMax = 20;
-    public static int towerCount = 0;
-    public static int towerProduced = 0;
-    public static int projectilesCount = 0;
+
+    public static int TowerMaxCount = 20;
+    public static int TowerCount = 0;
+    public static int TowerProduced = 0;
+    public static int ProjectilesCount = 0;
+
+    public const int MapSize = 700;
+
+    public const int TowerSize = 20;
+    public const float PlaceForTowerSize = 40f;
 }

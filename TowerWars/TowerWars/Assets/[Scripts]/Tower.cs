@@ -14,10 +14,52 @@ See the License for the specific language governing permissions and
 limitations under the License.*/
 using UnityEngine;
 
-public class Tower : MonoBehaviour {
-    private float timer = 0f;
-   // public float lifeTimer = 0f;
-    public bool isYellow = false;
+public class Tower : MonoBehaviour
+{
+    public bool IsYellow;
+
+    private const float _maxTimeToShoot = 8f;
+    private const float _minTimeToShoot = 4f;
+    private const float _minRotateAngle = 15f;
+    private const float _maxRotateAngle = 60f;
+    private const float _projectileForce = 1300f;
+    private const float _projectileSpawnLocationModifier = 30;
+    
+    private float _timer;
+
+    private void Update()
+    {
+        _timer -= Time.deltaTime;
+        if (_timer < 0)
+        {
+            if (Random.Range(0, 2) == 0)
+            {
+                transform.Rotate(Vector3.up, Random.Range(_minRotateAngle, _maxRotateAngle));
+            }
+            else
+            {
+                transform.Rotate(Vector3.down, Random.Range(_minRotateAngle, _maxRotateAngle));
+            }
+
+            _timer = Random.Range(_minTimeToShoot, _maxTimeToShoot);
+
+            GameObject projectile = Instantiate(PrefabHolder.Instance.Projectile, transform.position, transform.rotation);
+            projectile.transform.Translate(transform.right * _projectileSpawnLocationModifier, Space.World);
+            GameManager.ProjectilesCount++;
+
+            projectile.GetComponent<Rigidbody>().AddForce(transform.right * _projectileForce);
+            projectile.GetComponent<MeshRenderer>().material.color = GetComponent<MeshRenderer>().material.color;
+            projectile.GetComponent<Projectile>().Parent = this;
+        }
+    }
+
+    public void KilledSomeone()
+    {
+        if (!IsYellow)
+        {
+            GetComponent<MeshRenderer>().material.color = GetRandomColor();
+        }
+    }
 
     private Color GetRandomColor()
     {
@@ -32,35 +74,7 @@ public class Tower : MonoBehaviour {
             case 5: result = new Color(0.2F, 0.3F, 0.4F, 0.5F); break;
             default: result = new Color(); break;
         }
-
-
+        
         return result;
-    }
-
-    public void KilledSomeone()
-    {
-        if (!isYellow) { GetComponent<MeshRenderer>().material.color = GetRandomColor(); }
-    }
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        timer -= Time.deltaTime;
-     //   lifeTimer += Time.deltaTime;
-        if (timer < 0)
-        {
-            if (Random.Range(0, 2) == 0) { transform.Rotate(Vector3.up, Random.Range(15, 61)); }
-            else { transform.Rotate(Vector3.down, Random.Range(15, 61)); }
-            timer = Random.Range(4f, 8f);
-            GameObject projectile = Instantiate(PrefabHolder.Instance.projectile, transform.position, transform.rotation);
-            projectile.transform.Translate(transform.right * 30, Space.World);
-            GameManager.projectilesCount++;
-            projectile.GetComponent<Rigidbody>().AddForce(transform.right * 1300f);
-            projectile.GetComponent<MeshRenderer>().material.color = GetComponent<MeshRenderer>().material.color;
-            projectile.GetComponent<Projectile>().parent = this;
-        }
     }
 }
