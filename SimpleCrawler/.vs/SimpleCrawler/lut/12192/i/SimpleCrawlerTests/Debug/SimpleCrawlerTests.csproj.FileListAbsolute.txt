@@ -1,0 +1,7 @@
+C:\Users\Turbo\source\repos\SimpleCrawler\.vs\SimpleCrawler\lut\0\b\SimpleCrawlerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Turbo\source\repos\SimpleCrawler\.vs\SimpleCrawler\lut\0\b\SimpleCrawlerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Turbo\source\repos\SimpleCrawler\.vs\SimpleCrawler\lut\0\b\SimpleCrawlerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Turbo\source\repos\SimpleCrawler\.vs\SimpleCrawler\lut\0\b\SimpleCrawlerTests\bin\Debug\SimpleCrawlerTests.dll
+C:\Users\Turbo\source\repos\SimpleCrawler\.vs\SimpleCrawler\lut\0\i\SimpleCrawlerTests\Debug\SimpleCrawlerTests.csproj.CoreCompileInputs.cache
+C:\Users\Turbo\source\repos\SimpleCrawler\.vs\SimpleCrawler\lut\0\i\SimpleCrawlerTests\Debug\SimpleCrawlerTests.csproj.CopyComplete
+C:\Users\Turbo\source\repos\SimpleCrawler\.vs\SimpleCrawler\lut\0\i\SimpleCrawlerTests\Debug\SimpleCrawlerTests.dll
